@@ -8,6 +8,7 @@
 #' @author Borg
 loadMiData <- function(path,user_id){
         baklocale <- Sys.getlocale("LC_TIME")
+        Sys.setlocale("LC_TIME","en_US.UTF-8")
 	if( class(path)!="character" | class(user_id) != "character"){
 	        stop("Bad input, please parse character class for prameter path and user_id")
 	}

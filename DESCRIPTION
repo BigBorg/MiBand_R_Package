@@ -7,5 +7,6 @@ Author: Borg
 Maintainer: Borg<lbgandthesun@126.com>
 Description: Read in MiBand data copied from android system, some data cleanding and plogting.
 Imports:DBI, RSQLite, jsonlite, ggplot2, dplyr, reshape2
+Suggests:shiny
 License: GPL-3
 RoxygenNote: 5.0.1
