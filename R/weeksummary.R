@@ -17,7 +17,6 @@ weeksummary <- function(MiData,show=TRUE){
         level <- avgs$weekday
         avgs$weekday <- as.factor(avgs$weekday)
         levels(avgs$weekday) <- level
-        levels(avgs$weekday)
 
         q1<-ggplot(data=avgs,aes(x=weekday,y=sleep.light/60))+
                 geom_bar(stat="identity")+

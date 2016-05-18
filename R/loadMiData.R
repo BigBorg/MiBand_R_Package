@@ -7,6 +7,7 @@
 #' @import DBI RSQLite dplyr jsonlite
 #' @author Borg
 loadMiData <- function(path,user_id){
+        baklocale <- Sys.getlocale("LC_TIME")
 	if( class(path)!="character" | class(user_id) != "character"){
 	        stop("Bad input, please parse character class for prameter path and user_id")
 	}
@@ -59,6 +60,6 @@ loadMiData <- function(path,user_id){
         for(i in seq(ncol(cleanData))){
                 cleanData[,i][cleanData[,i]==0] <- NA
         }
-
+        Sys.setlocale("LC_TIME",baklocale)
         return(list(rawdata=cleanData,completedata=completedata))
 }
