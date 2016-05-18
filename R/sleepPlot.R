@@ -8,7 +8,7 @@
 
 sleepPlot <- function(MiData,show=TRUE){
         sleepframe <- dplyr::filter(melt(MiData$completedata),variable=="sleep.deep"|variable=="sleep.light")
-        p1 <- ggplot(data = sleepframe,aes(x=variable,y=value)) + geom_boxplot(aes(fill=variable))+labs(title="Box Plot")
+        p1 <- ggplot(data = sleepframe,aes(x=variable,y=value/60)) + geom_boxplot(aes(fill=variable))+labs(title="Box Plot")+labs(y="duration(hour)")
         if(show==TRUE){
                 print(p1)
                 userinput <- base::readline(prompt="Enter n to stop or anything to continue:")
