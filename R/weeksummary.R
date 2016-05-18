@@ -14,8 +14,12 @@ weeksummary <- function(MiData,show=TRUE){
                         sleep.deep=mean(sleep.deep[sleep.deep!=0]),
                         step=mean(step[step!=0]))
         avgs<-avgs[c(4,2,6,7,5,1,3),] #sort by weekday
+        level <- avgs$weekday
+        avgs$weekday <- as.factor(avgs$weekday)
+        levels(avgs$weekday) <- level
+        levels(avgs$weekday)
 
-        q1<-ggplot(data=avgs,aes(x=weekday,y=sleep.light))+
+        q1<-ggplot(data=avgs,aes(x=weekday,y=sleep.light/60))+
                 geom_bar(stat="identity")+
                 labs(title="Sleep Averages")+
                 labs(y="average light sleep(hour)")+
@@ -27,7 +31,7 @@ weeksummary <- function(MiData,show=TRUE){
                         stop("Stop according to user's input")
                 }
         }
-        q2<-ggplot(data=avgs,aes(x=weekday,y=sleep.deep))+
+        q2<-ggplot(data=avgs,aes(x=weekday,y=sleep.deep/60))+
                 geom_bar(stat="identity")+
                 labs(title="Sleep Averages")+
                 labs(y="average deep sleep(hour)")+
@@ -39,7 +43,7 @@ weeksummary <- function(MiData,show=TRUE){
                         stop("Stop according to user's input")
                 }
         }
-        q3<-ggplot(data=avgs,aes(x=weekday,y=step))+
+        q3<-ggplot(data=avgs,aes(x=weekday,y=step/60))+
                 geom_bar(stat="identity")+
                 labs(title="Step Averages")+
                 theme(axis.text.x = element_text(face="bold", color="#993333"))
