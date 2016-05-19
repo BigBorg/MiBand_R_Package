@@ -44,9 +44,9 @@ miPlot <- function(MiData,type,y,col="blue",bins=30,by="week",fill="#575757"){
                         data_plot<-MiData$avg_week
                         switch (y,
                                 'step' = {p <- ggplot(data = data_plot,aes(x=weekday,y=step))+ geom_bar(col=col,stat="identity",fill=fill) +labs(title="Step Week Mean")},
-                                'light' = {p <- ggplot(data=data_plot,aes(x=weekday,y=sleep.light/60)) + geom_bar(col=col,fill=fill) +labs(title="Light Sleep Week Mean")},
-                                'deep' = {p <- ggplot(data=data_plot,aes(x=weekday,y=sleep.deep/60)) + geom_bar(col=col,fill=fill) +labs(title="Deep Sleep Week Mean")},
-                                'efficiency' = {p <- ggplot(data=data_plot,aes(x=weekday,y=efficiency)) + geom_bar(col=col,fill=fill) +labs(title="Efficiency Week Mean")},
+                                'light' = {p <- ggplot(data=data_plot,aes(x=weekday,y=sleep.light/60)) + geom_bar(col=col,fill=fill,stat="identity") +labs(title="Light Sleep Week Mean")},
+                                'deep' = {p <- ggplot(data=data_plot,aes(x=weekday,y=sleep.deep/60)) + geom_bar(col=col,fill=fill,stat="identity") +labs(title="Deep Sleep Week Mean")},
+                                'efficiency' = {p <- ggplot(data=data_plot,aes(x=weekday,y=efficiency)) + geom_bar(col=col,fill=fill,stat="identity") +labs(title="Efficiency Week Mean")},
                                 'sleep' = {p <- ggplot(data=data_plot,aes(x=weekday,y=variable,col=type)) + geom_bar(aes(y=sleep.light/60,col="sleep.light"),stat = "identity") + geom_bar(aes(y=sleep.deep/60,col="sleep.deep"),stat="identity") +labs(title="Sleep Week Mean")}
                         )
                 },
