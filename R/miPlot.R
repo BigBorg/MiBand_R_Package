@@ -11,10 +11,10 @@
 
 miPlot <- function(MiData,type,y,col="blue",bins=30,by="week",fill="#575757"){
         # plottype: hist_light, hist_deep, hist_step, hist_efficiency
-        #           ts_light, ts_deep, ts_light+deep, ts_step, ts_efficiency
-        #           week_light, week_deep, week_step, week_efficiency
+        #           ts_light, ts_deep, ts_sleep, ts_step, ts_efficiency
+        #           week_light, week_deep, week_sleep, week_step, week_efficiency
         #TO-DO      month_light, month_deep, month_step
-        #           box_light_deep
+        #           box_sleep, box_light, box_deep, box_step, box_efficiency
         switch (by,
                 'week' = {data_plot<-MiData$data_week}
         )
